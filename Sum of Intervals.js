@@ -16,3 +16,19 @@ function sumIntervals(intervals){
     return uniqueNumbers.length;
     
     }
+
+
+
+//vv
+const range = ([from, to]) => {
+    const size = to - from;
+    return [...Array(size).keys()].map(i => i + from);
+  };
+  
+  function sumIntervals(intervals) {
+    return intervals
+      .map(range)
+      .reduce((acc, curr) => [...acc, ...curr])
+      .filter((i, idx, arr) => arr.indexOf(i) === idx).length;
+  }
+  
